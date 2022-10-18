@@ -3,11 +3,11 @@
   <title>WonderfulBing</title>
   
   
-  <link href="http://example.com/atom.xml" rel="self"/>
+  <link href="https://wonderfulbing.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/"/>
+  <link href="https://wonderfulbing.github.io/"/>
   <updated>2022-10-18T10:00:18.894Z</updated>
-  <id>http://example.com/</id>
+  <id>https://wonderfulbing.github.io/</id>
   
   <author>
     <name>Wang Zhen</name>
@@ -18,8 +18,8 @@
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/2022/10/18/hello-world/"/>
-    <id>http://example.com/2022/10/18/hello-world/</id>
+    <link href="https://wonderfulbing.github.io/2022/10/18/hello-world/"/>
+    <id>https://wonderfulbing.github.io/2022/10/18/hello-world/</id>
     <published>2022-10-18T10:00:18.894Z</published>
     <updated>2022-10-18T10:00:18.894Z</updated>
     
