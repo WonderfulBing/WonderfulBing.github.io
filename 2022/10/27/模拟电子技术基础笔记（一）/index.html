@@ -1,0 +1,813 @@
+<!DOCTYPE html>
+<html lang=en>
+<head>
+  <meta charset="utf-8">
+  
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no, minimal-ui">
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="Cache-Control" content="no-transform" />
+  <meta http-equiv="Cache-Control" content="no-siteapp" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black">
+  <meta name="format-detection" content="telephone=no,email=no,adress=no">
+  <!-- Color theme for statusbar -->
+  <meta name="theme-color" content="#000000" />
+  <!-- 强制页面在当前窗口以独立页面显示,防止别人在框架里调用页面 -->
+  <meta http-equiv="window-target" content="_top" />
+  
+  
+  <title>Hexo</title>
+  <meta name="description" content="2022&#x2F;10&#x2F;19 9:27:00   title: 模拟电子技术基础笔记（一）1.模拟信号与模拟电路电子电路中的信号分为数字信号和模拟信号 模拟信号的特点：连续性，任何瞬间的任何值都是有意义的，例如正弦波  任何的周期性的信号都可以把他分解成为若干频率的正弦波的叠加  大多数的物理量均是模拟量，比如温度、压力、流量…非带电物理量可以通过传感器变换成电信号 传感器就是把非电的">
+<meta property="og:type" content="article">
+<meta property="og:title" content="WonderfulBing">
+<meta property="og:url" content="https://wonderfulbing.github.io/2022/10/27/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+<meta property="og:site_name" content="WonderfulBing">
+<meta property="og:description" content="2022&#x2F;10&#x2F;19 9:27:00   title: 模拟电子技术基础笔记（一）1.模拟信号与模拟电路电子电路中的信号分为数字信号和模拟信号 模拟信号的特点：连续性，任何瞬间的任何值都是有意义的，例如正弦波  任何的周期性的信号都可以把他分解成为若干频率的正弦波的叠加  大多数的物理量均是模拟量，比如温度、压力、流量…非带电物理量可以通过传感器变换成电信号 传感器就是把非电的">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="http://photogz.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFuzNOL6YUm3Im0.oXXRuY0rBbfzWaKzGLUGXUGRqO*VnIBM57ZFlFXMZtGyqhDVCw!!/b&ek=1&kp=1&pt=0&bo=WQPRAVkD0QEWADA!&tl=1&tm=1666314000&dis_t=1666317122&dis_k=aef087e0cda768224316fb59f3dd276a&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzH2sOZSIT9uhKGdzbDEDBRBKuvuccAJF2uWDQPROtyth*467DIXsKHRkcKGrofLySA!!/o&ek=1&kp=1&pt=0&bo=IgNRASIDUQEWADA!&tl=1&tm=1666314000&dis_t=1666317527&dis_k=7e7e926b41d9b368942f90e0362e8332&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzEUJhVhWhhKRnWq1dfljRsk9FIrEjVIgOwgUh23KfHOXbZ.ufO0gK*7B843lUBmTwg!!/o&ek=1&kp=1&pt=0&bo=SQH3AEkB9wAWADA!&tl=1&tm=1666317600&dis_t=1666317743&dis_k=d8fcc4067d801680e90d5e2e7ddc8773&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDDS4SLOXiBulXQEhA7zV1aQrhtRiUOUwhJQkbgwKIuMyX.BjnKNqFRJYeJQy4lCCQ!!/o&ek=1&kp=1&pt=0&bo=9gHUAPYB1AAWADA!&tl=1&tm=1666317600&dis_t=1666318728&dis_k=9a43609fa71a7dbf096448c8d845bb5b&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzIl0m9Oj3HnR3GZ2vZnzPg4WYy1KSz19FziuBxVa1mwT8uiGakvtEvUZgQN5OdM2sg!!/o&ek=1&kp=1&pt=0&bo=WwH0AFsB9AAWADA!&tl=1&tm=1666317600&dis_t=1666319120&dis_k=23a6f680d4f8f7ef34bbfc8990aa33b3&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMrj06BQWycxrA0HYt2P*fj3w5fvJEj.DYibRqTp9V3adV4Y1dPwPWBdVUAQhoayPQ!!/o&ek=1&kp=1&pt=0&bo=eQHTAHkB0wAWADA!&tl=1&tm=1666317600&dis_t=1666320495&dis_k=ad2ab6c6311d228e4ec86a0dc53e2039&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDFUY7M6U130DZX6ERHu3Db5fw66qnfpoav*Y2wh*hNVU2EDR4DUzwtOGmQ0sZ0ktQ!!/b&ek=1&kp=1&pt=0&bo=LwHhAC8B4QAWADA!&tl=1&vuin=2428175738&tm=1666317600&dis_t=1666320498&dis_k=477f52399d0673f8310c44906e4734f4&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMc8mGGEdriz8Fbsy2giCCfCcJRY2VzD.a0J6pF2KfwXw5TCbv.I9QnhKK*o*Fi4Kw!!/b&ek=1&kp=1&pt=0&bo=LQHVAC0B1QAWADA!&tl=1&vuin=2428175738&tm=1666317600&dis_t=1666320498&dis_k=504ab4e86221c61da5acbd584c2925d5&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzOn57CwFMx0WYTjALXUHXmGaJEMU*FpM4Wh2J8cP3joVOfVkkf7gZENLE5SXM9e0.Q!!/o&ek=1&kp=1&pt=0&bo=1gS0AdYEtAEWADA!&tl=1&tm=1666317600&dis_t=1666321141&dis_k=acfac078f253d0584ff32ccda6b9676f&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzG.JYe3gsHW9lgfYCfjFaTiYFOpHVWpv5ucU0tbS5oAq3v6l3cBa2HHipc9h8LgCeA!!/c&ek=1&kp=1&pt=0&bo=6gMiAuoDIgIWADA!&tl=1&tm=1666321200&dis_t=1666321896&dis_k=844344d13d4d08cb5c0e97d15c30ceab&sce=0-12-12&rf=0-18">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMrj06BQWycxrA0HYt2P*fhAD8ItT85Vn6.aPz2pzTu8MIA3ZGx6UEgfjxWauhX6yA!!/o&ek=1&kp=1&pt=0&bo=mgQ5ApoEOQIWADA!&tl=1&tm=1666321200&dis_t=1666322245&dis_k=965d6653277ddfd4f1e93ab1dee1158b&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzK4BNwwgQTr4D6j7D9rztTIMcU7rZJkEIALggQne*hL3GLuF1b4GfKI4S58CbkNHHA!!/o&ek=1&kp=1&pt=0&bo=AAUkAgAFJAIWADA!&tl=1&tm=1666321200&dis_t=1666322380&dis_k=1f9d650df5dfdcde6acb2093bc45ba03&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDFUY7M6U130DZX6ERHu3DbEFlBBrJXYex6GJa7lLcjUbmJRxMYp.VbrbPZkyuTkOw!!/o&ek=1&kp=1&pt=0&bo=0QDUANEA1AAWADA!&tl=1&tm=1666335600&dis_t=1666337393&dis_k=078c69f46327da835311f75bfe2cd970&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHyLGwp15iwp7QdgalMsUbv8w9avldtu9ORshMWhMeiE6eTVoRz30UPsaOLOWFWHrw!!/b&ek=1&kp=1&pt=0&bo=ygDYAMoA2AAWADA!&tl=1&vuin=2428175738&tm=1666335600&dis_t=1666337396&dis_k=5fd8a4cd3775edd7c8c269935dac4b04&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMEJdS5dV5iBExTaepVYK46d3m5UAXdVc*Aq0cJylE9RJsiDnIjMcNn0NswOzl9PuA!!/b&ek=1&kp=1&pt=0&bo=xwDVAMcA1QAWADA!&tl=1&vuin=2428175738&tm=1666335600&dis_t=1666337396&dis_k=3505d747224b9fa400d4c5d1e88d7bf9&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzCNP2izT7fx6O4Y2H9jkQ7xaFD3**2BDqcX3wdRLT*HWvZ.cHFEaBS.dSK0UlX2lIA!!/o&ek=1&kp=1&pt=0&bo=aQM0AWkDNAEWADA!&tl=1&tm=1666335600&dis_t=1666338014&dis_k=53000012353d09e137a5154b07dd0383&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzKee.WHPkeGOFt2DpRdbanvj7aVGA4b1iW0Yq3myO9bjXSEMi7Nw7HunfTlaZdX9Pg!!/o&ek=1&kp=1&pt=0&bo=9wOSAfcDkgEWADA!&tl=1&tm=1666335600&dis_t=1666338601&dis_k=e6f99db97592f5cb165c932fdc3a97bd&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzEj0Cj6Xk*1vnRJgMAupbgO*pYGGrim9MsNSRb1eNeOsDHBODBVGTc10iKlV7rWOxg!!/o&ek=1&kp=1&pt=0&bo=aATCAGgEwgAWADA!&tl=1&tm=1666335600&dis_t=1666338750&dis_k=fb808dd7817b02c3d7118836d953ba31&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFuzNOL6YUm3Im0.oXXRuY2jdm2J*nmhL7B*otKH.ACzGxggfrcG5Mm2h5HB5VsLwg!!/o&ek=1&kp=1&pt=0&bo=wABTAMAAUwAWADA!&tl=1&tm=1666335600&dis_t=1666338891&dis_k=f69f4101af21da9c7b335ba00ee72f98&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzKSjEpt2gVEiNPATXn0ixRKorufIE*SBiKYExn11K*ZSmEKzByKGnqOM727PcW8gOw!!/b&ek=1&kp=1&pt=0&bo=GgG2ABoBtgAWADA!&tl=1&vuin=2428175738&tm=1666335600&dis_t=1666338894&dis_k=1c0d24c45ab22919cd44b6d8ec2a0622&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMZrihYvHmefR4JE5kL5H*WXoZ6*zfRaY9dPec9NKZ8lH863Qm1q4WYeXtp1EA4vVg!!/o&ek=1&kp=1&pt=0&bo=ngHXAJ4B1wAWADA!&tl=1&tm=1666339200&dis_t=1666340634&dis_k=53a343f243852a8db1be459b451f376d&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzNAPst62BisgmAQZgFn.gQgHMJm8IP2meAWY1zL3tTfBU5SK9PbC2MxayWeIoKycHg!!/o&ek=1&kp=1&pt=0&bo=dQHrAHUB6wAWADA!&tl=1&tm=1666339200&dis_t=1666340954&dis_k=2711761d6e7704398809e968b3f14ed7&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFuzNOL6YUm3Im0.oXXRuY2jdm2J*nmhL7B*otKH.ACzGxggfrcG5Mm2h5HB5VsLwg!!/o&ek=1&kp=1&pt=0&bo=wABTAMAAUwAWADA!&tl=1&tm=1666335600&dis_t=1666338891&dis_k=f69f4101af21da9c7b335ba00ee72f98&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzIm0WdwR2r1n712XmoWOYU1YCWgGfSoxhxIR**080XkhWRDgj4CPzpQyzSm5Y02Adw!!/o&ek=1&kp=1&pt=0&bo=XgMsAV4DLAEWADA!&tl=1&tm=1666350000&dis_t=1666352839&dis_k=3ddebd42eb36026f7be6cfc3dcc32646&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/8v1c6OdZLSE3kzDE6fnRykUf5evWQFFRbaxLkaUad7nTBrC34E7qQzWTZ7HbFEiPmEXlWDUO1rLVpIZBOkuqFtMVgFAdQ8WYXvlTZYyX8CQ!/m&ek=1&kp=1&pt=0&bo=FQJUABUCVAAWADA!&tl=3&vuin=2428175738&tm=1666350000&dis_t=1666353082&dis_k=086dac1b40124ff7711c4f4ba501c064&sce=60-3-3&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzBxfqd0zgMs4L2dj3lziAkk1I3b2JCcLL9q8dAblWkNF33HgOCj8iPkPMNNIJ0Kriw!!/b&ek=1&kp=1&pt=0&bo=lwExAZcBMQEWADA!&tl=1&vuin=2428175738&tm=1666350000&dis_t=1666353085&dis_k=429d0823a6f2eefddda4338eebd6194a&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzPtNqBkEUj4L.bGcMM3QekqoZrB7buTtuMHZ582yolr1VVpuO1jZu4q6sCaVB9UQKA!!/b&ek=1&kp=1&pt=0&bo=TwMbAU8DGwEWADA!&tl=1&vuin=2428175738&tm=1666353600&dis_t=1666354580&dis_k=1536899cf2a7c2c8d13a1c5ea9890918&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMZ14RXa7InOl5UaNXAtPmfxFPHtD3YR1UtthUWFDWmUAh3REDl3AL5KqDTzr898QA!!/c&ek=1&kp=1&pt=0&bo=SQM6AUkDOgEWADA!&tl=1&tm=1666353600&dis_t=1666354578&dis_k=7ebc513b0598ed47468ee2fa446b655b&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://photogz.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzL10Z8asg7gnGMxfzWxJnI8EvIRG2MbJBwbQWYSS6aZojwwYpV0KES1d7vGdV3Qewg!!/m&bo=yQA*AMkAPwAWADA!&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzL10Z8asg7gnGMxfzWxJnI9URboB7VvNkyuLpNAz0ugNBUyjQfXUkBvIi8wHk6omRg!!/b&ek=1&kp=1&pt=0&bo=TwFBAU8BQQEWADA!&tl=1&vuin=2428175738&tm=1666677600&dis_t=1666681044&dis_k=d4b700d3cdd82c9792771f5fd1cee77c&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFlssJk70gpZZ3uFcBsgsdBWZY9cvgXAEUWjFeH9rentPdYGkGXp2com4zZPYNSIHA!!/o&ek=1&kp=1&pt=0&bo=swA3ALMANwAWADA!&tl=1&tm=1666681200&dis_t=1666682331&dis_k=80ce62b918f814724f651f5fec7019c4&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzIWpScq8skfoe7ZWRr4iEdwqf1cAJNEbYemln1038ETqJO3ZOZkuYqVLqYCbqKkZpQ!!/o&ek=1&kp=1&pt=0&bo=0gEiAdIBIgEWADA!&tl=1&tm=1666681200&dis_t=1666682944&dis_k=9cd136b8c5b3863f39da2c57839ef050&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHzeP6ALpwCan8PfH7PFb4yxteJJWHaby9OdSYGQOi2bn4e0sH.ZX*sYIMApKiGU6g!!/b&ek=1&kp=1&pt=0&bo=tgBOALYATgAWADA!&tl=1&vuin=2428175738&tm=1666681200&dis_t=1666682949&dis_k=6dcb61e272c504a3a0a7c1babcf3fbb7&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/8v1c6OdZLSE3kzDE6fnRygjLZ0FpkAItaFjIUhooKVaEPzqIKV3XrpM*C0HoAfMtsDkJcYtjM*.IXRAcytTmLdQ1uhG5yZfI*m*.utuneho!/m&ek=1&kp=1&pt=0&bo=hwH3AIcB9wAWADA!&tl=3&vuin=2428175738&tm=1666681200&dis_t=1666683870&dis_k=eb6000c9fbb2df6e0decb2408d3ee5c8&sce=60-4-3&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzH2sOZSIT9uhKGdzbDEDBRAe2sL7VVHjbJASdG.I8iWU*T4xFm1RB*jTSLIAH1p3Iw!!/b&ek=1&kp=1&pt=0&bo=dgElAXYBJQEWADA!&tl=1&vuin=2428175738&tm=1666681200&dis_t=1666683873&dis_k=59a6dd26711d43d2ce8c13eec3bcd1d2&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHqigkmttDj.SuDxFZyZv9bAKRZXseWW7aeM.HPUEgxzbUXh.3HbbEsBhAE9N1ZKPg!!/b&ek=1&kp=1&pt=0&bo=hgGbAIYBmwAWADA!&tl=1&vuin=2428175738&tm=1666681200&dis_t=1666683873&dis_k=f1386a4064b90df0843fec80a51a063e&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDDS4SLOXiBulXQEhA7zV1ahwXKIgYE6AFv8xdlIgVqT6Y*UhA8pUYJt0F75NAfV1w!!/o&ek=1&kp=1&pt=0&bo=ogGdAaIBnQEWADA!&tl=1&tm=1666684800&dis_t=1666687676&dis_k=7203728c99649913e34a05ce497aa090&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMZ14RXa7InOl5UaNXAtPme6nI*wn*vyZbEOdEpb6ywCkHVvHsIyI0cVuklDzLZmwQ!!/b&ek=1&kp=1&pt=0&bo=kwEaAZMBGgEWADA!&tl=1&vuin=2428175738&tm=1666684800&dis_t=1666687679&dis_k=ccf7018865ece4594e935571658b00ed&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzNKnZvZREbaQ4rXtP1UHVKoADiv28Whfjuv28MNo4tMgZpQq3BYCF9ZwqyDLEoakmA!!/b&ek=1&kp=1&pt=0&bo=7QGDAO0BgwAWADA!&tl=1&vuin=2428175738&tm=1666684800&dis_t=1666687679&dis_k=1845a463e287094093143735c9d98ce7&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzBjoHOcPMuHaMbNQBXtEg2E6Ip7xyV6.owjelKewZPz3GU3nlwyEuYURa2UMqD2.Jg!!/o&ek=1&kp=1&pt=0&bo=CQYjBAkGIwQWADA!&tl=1&tm=1666688400&dis_t=1666688709&dis_k=86b8c0394e2e8136cc1b49da5cf91097&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzNAPst62BisgmAQZgFn.gQhqwpRwSOeu8ZNN1mvkB1ykI2ormzJxVOrs6XFKZB2p1Q!!/o&ek=1&kp=1&pt=0&bo=MgP*ADID*wAWADA!&tl=1&tm=1666771200&dis_t=1666772329&dis_k=1f0767038fffd8e5fbefe3321c1e8fe0&sce=0-12-12&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzAVPbIDmXCbp396sHtxN7dQoRxeyuIOZDjNs62GPLYG3KCWLo97vL6DYE1RgMwq03Q!!/b&ek=1&kp=1&pt=0&bo=owKGAKMChgAWADA!&tl=1&vuin=2428175738&tm=1666771200&dis_t=1666772332&dis_k=9c4408850187377938559606f31c8ac2&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHR7XZW5lW80Asb*y1sFjFejaJSw.DTgwQhDScBMgjEBVcG3vMcY2rPol0HwCl2cXQ!!/b&ek=1&kp=1&pt=0&bo=ygJsAcoCbAEWADA!&tl=1&vuin=2428175738&tm=1666771200&dis_t=1666772332&dis_k=f24fe0ae7178008bc0271e417e379337&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDFUY7M6U130DZX6ERHu3Db1X1SbrGWtSV7EvNOJhMMlOJv19dHe7yAeyRxLDblq1Q!!/b&ek=1&kp=1&pt=0&bo=9AJ5AfQCeQEWADA!&tl=1&vuin=2428175738&tm=1666771200&dis_t=1666772332&dis_k=dd19d230458a298946f92fafb5a323fb&sce=50-1-1&rf=viewer_311">
+<meta property="og:image" content="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHyLGwp15iwp7QdgalMsUbv0a90zr1ZLJOq*Col7Z0OiSWsBcFKiRpU2mGhy2oAHmQ!!/b&ek=1&kp=1&pt=0&bo=HwPKAB8DygAWADA!&tl=1&vuin=2428175738&tm=1666771200&dis_t=1666772332&dis_k=630ab824bb9d92727b45650a24b97007&sce=50-1-1&rf=viewer_311">
+<meta property="article:published_time" content="2022-10-27T01:30:50.625Z">
+<meta property="article:modified_time" content="2022-10-27T01:33:31.258Z">
+<meta property="article:author" content="Wang Zhen">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://photogz.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFuzNOL6YUm3Im0.oXXRuY0rBbfzWaKzGLUGXUGRqO*VnIBM57ZFlFXMZtGyqhDVCw!!/b&ek=1&kp=1&pt=0&bo=WQPRAVkD0QEWADA!&tl=1&tm=1666314000&dis_t=1666317122&dis_k=aef087e0cda768224316fb59f3dd276a&sce=0-12-12&rf=viewer_311">
+  <!-- Canonical links -->
+  <link rel="canonical" href="https://wonderfulbing.github.io/2022/10/27/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/index.html">
+  
+    <link rel="alternate" href="/atom.xml" title="WonderfulBing" type="application/atom+xml">
+  
+  
+    <link rel="icon" href="/favicon.png" type="image/x-icon">
+  
+  
+<link rel="stylesheet" href="/css/style.css">
+
+  
+  
+  
+  
+<meta name="generator" content="Hexo 6.3.0"></head>
+
+
+<body class="main-center" itemscope itemtype="http://schema.org/WebPage">
+  <header class="header" itemscope itemtype="http://schema.org/WPHeader">
+  <div class="slimContent">
+    <div class="navbar-header">
+      
+      
+      <div class="profile-block text-center">
+        <a id="avatar" href="https://github.com/cofess" target="_blank">
+          <img class="img-circle img-rotate" src="/images/avatar.jpg" width="200" height="200">
+        </a>
+        <h2 id="name" class="hidden-xs hidden-sm">昵称</h2>
+        <h3 id="title" class="hidden-xs hidden-sm hidden-md">Web Developer &amp; Designer</h3>
+        <small id="location" class="text-muted hidden-xs hidden-sm"><i class="icon icon-map-marker"></i> Shenzhen, China</small>
+      </div>
+      
+      <div class="search" id="search-form-wrap">
+
+    <form class="search-form sidebar-form">
+        <div class="input-group">
+            <input type="text" class="search-form-input form-control" placeholder="Search" />
+            <span class="input-group-btn">
+                <button type="submit" class="search-form-submit btn btn-flat" onclick="return false;"><i class="icon icon-search"></i></button>
+            </span>
+        </div>
+    </form>
+    <div class="ins-search">
+  <div class="ins-search-mask"></div>
+  <div class="ins-search-container">
+    <div class="ins-input-wrapper">
+      <input type="text" class="ins-search-input" placeholder="Type something..." x-webkit-speech />
+      <button type="button" class="close ins-close ins-selectable" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">×</span></button>
+    </div>
+    <div class="ins-section-wrapper">
+      <div class="ins-section-container"></div>
+    </div>
+  </div>
+</div>
+
+
+</div>
+      <button class="navbar-toggle collapsed" type="button" data-toggle="collapse" data-target="#main-navbar" aria-controls="main-navbar" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+    </div>
+    <nav id="main-navbar" class="collapse navbar-collapse" itemscope itemtype="http://schema.org/SiteNavigationElement" role="navigation">
+      <ul class="nav navbar-nav main-nav ">
+        
+        
+        <li class="menu-item menu-item-home">
+          <a href="/.">
+            
+            <i class="icon icon-home-fill"></i>
+            
+            <span class="menu-title">Home</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives">
+            
+            <i class="icon icon-archives-fill"></i>
+            
+            <span class="menu-title">Archives</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories">
+            
+            <i class="icon icon-folder"></i>
+            
+            <span class="menu-title">Categories</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags">
+            
+            <i class="icon icon-tags"></i>
+            
+            <span class="menu-title">Tags</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-repository">
+          <a href="/repository">
+            
+            <i class="icon icon-project"></i>
+            
+            <span class="menu-title">Repository</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-books">
+          <a href="/books">
+            
+            <i class="icon icon-book-fill"></i>
+            
+            <span class="menu-title">Books</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-links">
+          <a href="/links">
+            
+            <i class="icon icon-friendship"></i>
+            
+            <span class="menu-title">Links</span>
+          </a>
+        </li>
+        
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about">
+            
+            <i class="icon icon-cup-fill"></i>
+            
+            <span class="menu-title">About</span>
+          </a>
+        </li>
+        
+      </ul>
+      
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    </nav>
+  </div>
+</header>
+
+  
+    <aside class="sidebar" itemscope itemtype="http://schema.org/WPSideBar">
+  <div class="slimContent">
+    
+      <div class="widget">
+    <h3 class="widget-title">Board</h3>
+    <div class="widget-body">
+        <div id="board">
+            <div class="content">
+                <p>欢迎交流与分享经验!</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+    
+      
+
+    
+      
+
+    
+      
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Archive</h3>
+    <div class="widget-body">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2022/10/">October 2022</a><span class="archive-list-count">2</span></li></ul>
+    </div>
+  </div>
+
+
+    
+      
+  <div class="widget">
+    <h3 class="widget-title">Recent Posts</h3>
+    <div class="widget-body">
+      <ul class="recent-post-list list-unstyled no-thumbnail">
+        
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/10/27/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" class="title">(no title)</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-27T01:30:50.625Z" itemprop="datePublished">2022-10-27</time>
+              </p>
+            </div>
+          </li>
+          
+          <li>
+            
+            <div class="item-inner">
+              <p class="item-category">
+                
+              </p>
+              <p class="item-title">
+                <a href="/2022/10/18/hello-world/" class="title">Hello World</a>
+              </p>
+              <p class="item-date">
+                <time datetime="2022-10-18T10:00:18.894Z" itemprop="datePublished">2022-10-18</time>
+              </p>
+            </div>
+          </li>
+          
+      </ul>
+    </div>
+  </div>
+  
+
+    
+  </div>
+</aside>
+
+  
+  
+<main class="main" role="main">
+  <div class="content">
+  <article id="post-模拟电子技术基础笔记（一）" class="article article-type-post" itemscope itemtype="http://schema.org/BlogPosting">
+    
+    <div class="article-header">
+      
+      <div class="article-meta">
+        <span class="article-date">
+    <i class="icon icon-calendar-check"></i>
+	<a href="/2022/10/27/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" class="article-date">
+	  <time datetime="2022-10-27T01:30:50.625Z" itemprop="datePublished">2022-10-27</time>
+	</a>
+</span>
+        
+        
+
+        
+
+        <span class="post-comment"><i class="icon icon-comment"></i> <a href="/2022/10/27/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/#comments" class="article-comment-link">Comments</a></span>
+        
+      </div>
+    </div>
+    <div class="article-entry marked-body" itemprop="articleBody">
+      
+        <p>2022&#x2F;10&#x2F;19 9:27:00 </p>
+<hr>
+<h2 id="title-模拟电子技术基础笔记（一）"><a href="#title-模拟电子技术基础笔记（一）" class="headerlink" title="title: 模拟电子技术基础笔记（一）"></a>title: 模拟电子技术基础笔记（一）</h2><h1 id="1-模拟信号与模拟电路"><a href="#1-模拟信号与模拟电路" class="headerlink" title="1.模拟信号与模拟电路"></a>1.模拟信号与模拟电路</h1><p>电子电路中的信号分为数字信号和模拟信号</p>
+<p><strong>模拟信号</strong>的特点：连续性，任何瞬间的任何值都是有意义的，例如正弦波</p>
+<blockquote>
+<p>任何的周期性的信号都可以把他分解成为若干频率的正弦波的叠加</p>
+</blockquote>
+<p>大多数的物理量均是模拟量，比如温度、压力、流量…非带电物理量可以通过传感器变换成电信号</p>
+<p>传感器就是把非电的物理量转换成为电信号的装置</p>
+<p><strong>数字信号</strong>的特点：离散性</p>
+<p><strong>模拟电路就是对模拟信号进行处理的电路</strong></p>
+<p>在模拟信号的处理当中最基本的处理就是对信号的放大，有功能和性能各异的放大电路，其他模拟电路多以放大器为基础</p>
+<p>数字化重要性：只有将模拟信号放大到足够大，才能够进行数字化处理；而只有将处理好的数字信号转换为模拟信号并进行功率放大，才能驱动某些负载。</p>
+<p><strong>电子系统的组成</strong></p>
+<p>一个模拟电子系统是由四个部分组成的</p>
+<p>1.信号的提取</p>
+<blockquote>
+<p>信号的提取通常是通过<strong>传感器</strong>（温度传感器）、<strong>接收器</strong> （手机、收音机、电视机等）、<strong>信号发生器</strong>（实验室用） </p>
+</blockquote>
+<p>2.信号的预处理</p>
+<blockquote>
+<p>将信号提取后进行预处理，在处理里面最基础的就是<strong>放大</strong>，因为接收到的信号非常微弱（尤其是传感器和接收器），接受到的信号经常会受到干扰，因此需要对波形进行净化，去掉不必要的东西，就是<strong>滤波</strong> 。在一些实用的情况下，我们希望电子系统和他前面的电路之间没有电的联系，所以还有一种就是进行<strong>隔离</strong>。</p>
+</blockquote>
+<p>如果一些处理需要数字化的处理，在对信号进行预处理后，通过A&#x2F;D转换将模拟信号转化为数字信号这样就变成了计算机或其他数字系统能够辨识的数字信号了，然后在通过D&#x2F;A转化为模拟信号，在这种转换后常常不能直接驱动某些负载，于是他仍然要进入信号的驱动与执行。</p>
+<p>3.信号的加工</p>
+<blockquote>
+<p>在对信号的加工中一种叫做<strong>运算</strong>，有比例、加减、乘除等，经过对信号的运算得到最佳的控制。还有一种叫做<strong>比较</strong> 电路，比如报警电路，超过某个预设值是，系统报警。还有一种叫做<strong>变换</strong>电路，比如把电流信号转化为电压信号等</p>
+</blockquote>
+<p>4.信号的驱动与执行</p>
+<blockquote>
+<p>在对信号进行加工后就到了对信号的驱动与执行，功率放大器把信号处理到有足够推动负载这样大的功率，然后直接去推动执行机构</p>
+</blockquote>
+<p><strong>总结：模拟信号电路有能够被数字电路取代的部分也有它自己独特的部分是数字电路不能够取代的</strong></p>
+<h1 id="2-半导体二极管和三级管"><a href="#2-半导体二极管和三级管" class="headerlink" title="2.半导体二极管和三级管"></a>2.半导体二极管和三级管</h1><h2 id="本征半导体"><a href="#本征半导体" class="headerlink" title="本征半导体"></a>本征半导体</h2><p><strong>半导体</strong>：导电性介于导体与绝缘体之间的物质。硅、锗，均为四价元素，他们原子的最外层电子受原子核的束缚力介于导体与绝缘体之间。<br>既不像导体那样比较弱，又不像绝缘体那样非常强</p>
+<p><strong>导体</strong>：铁、铝、铜等金属元素等低价元素，其最外层电子在外电场作用下很容易产生定向移动，形成电流。（低价元素）</p>
+<p><strong>绝缘体</strong>：惰性气体、橡胶等。其原子的最外层电子受原子核的束缚力很强，只有在外电场强到一定程度时才可能导电（耐压）。（高价元素）</p>
+<p><strong>本征半导体</strong>：是纯净的晶体结构的半导体，无杂质，具有稳定的结构</p>
+<blockquote>
+<p>晶体结构是原子核的最外层电子形成的共价键结构，是一种坚固的结构</p>
+</blockquote>
+<blockquote>
+<p>自由电子和空穴是成对出现的</p>
+</blockquote>
+<p>一定温度下，自由电子与空穴对的浓度一定（即动态平衡）；温度升高，热运动加剧，挣脱共价键的电子增多，自由电子与空穴对的浓度加大。</p>
+<p>外加电场时，带负电的自由电子和带正电的空穴均参与导电，且运动方向相反。由于载流子数目很少，故导电性很差。</p>
+<p>温度升高，热运动加剧，载流子浓度增大，导电性增强，热力学温度0度时不导电。</p>
+<h2 id="杂质半导体"><a href="#杂质半导体" class="headerlink" title="杂质半导体"></a>杂质半导体</h2><p>为了使得导电性能可控，我们就要在本征半导体里边掺入一定的杂质。</p>
+<p>杂质半导体主要靠多数载流子导电。掺入杂质越多，多子浓度越高，导电性越强，实现导电性可控。</p>
+<p><strong>N型半导体</strong></p>
+<p>掺入5价元素（常用磷P元素）</p>
+<p>在形成一个共价键后多出一个电子，自由电子与空穴浓度不同，此时自由电子是多数载流子，空穴是少数载流子</p>
+<p><strong>P型半导体</strong></p>
+<p>掺入3价元素（常用硼B）</p>
+<p>空穴是多数载流子，自由电子是少数载流子</p>
+<h2 id="PN结的形成及其单向导电性"><a href="#PN结的形成及其单向导电性" class="headerlink" title="PN结的形成及其单向导电性"></a>PN结的形成及其单向导电性</h2><p>只是N型半导体和P型半导体，虽然他们导电的性能改变了，但是我们并不想让他们成为导体就完了，而构成半导体器件最基本的结构就是<strong>PN结</strong></p>
+<p><strong>PN结的形成</strong></p>
+<p>物质因浓度差而产生的运动成为扩散运动。气体、液体、固体均有之。</p>
+<p><img src="http://photogz.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFuzNOL6YUm3Im0.oXXRuY0rBbfzWaKzGLUGXUGRqO*VnIBM57ZFlFXMZtGyqhDVCw!!/b&ek=1&kp=1&pt=0&bo=WQPRAVkD0QEWADA!&tl=1&tm=1666314000&dis_t=1666317122&dis_k=aef087e0cda768224316fb59f3dd276a&sce=0-12-12&rf=viewer_311"></p>
+<p>由于扩散运动使P区与N区的交界面缺少多数载流子，形成内电场，从而阻止扩散运动的进行。<strong>内电场使空穴从N区向P区、自由电子从P区向N区运动</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzH2sOZSIT9uhKGdzbDEDBRBKuvuccAJF2uWDQPROtyth*467DIXsKHRkcKGrofLySA!!/o&ek=1&kp=1&pt=0&bo=IgNRASIDUQEWADA!&tl=1&tm=1666314000&dis_t=1666317527&dis_k=7e7e926b41d9b368942f90e0362e8332&sce=0-12-12&rf=viewer_311"></p>
+<p><strong>PN结的单向导电性</strong></p>
+<p>PN结加正向电压（正向接法、正向偏置）</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzEUJhVhWhhKRnWq1dfljRsk9FIrEjVIgOwgUh23KfHOXbZ.ufO0gK*7B843lUBmTwg!!/o&ek=1&kp=1&pt=0&bo=SQH3AEkB9wAWADA!&tl=1&tm=1666317600&dis_t=1666317743&dis_k=d8fcc4067d801680e90d5e2e7ddc8773&sce=0-12-12&rf=viewer_311"></p>
+<p>PN结加正向电压导通：<br>耗尽层变窄，扩散运动加剧， 由于外电源的作用，形成扩散电流， PN结处于导通状态。</p>
+<blockquote>
+<p>少数载流子数目虽少，但是它受温度的影响大，因而对整个器件的温度稳定性影响大</p>
+</blockquote>
+<h2 id="PN结的电容效应"><a href="#PN结的电容效应" class="headerlink" title="PN结的电容效应"></a>PN结的电容效应</h2><p><strong>势垒电容</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDDS4SLOXiBulXQEhA7zV1aQrhtRiUOUwhJQkbgwKIuMyX.BjnKNqFRJYeJQy4lCCQ!!/o&ek=1&kp=1&pt=0&bo=9gHUAPYB1AAWADA!&tl=1&tm=1666317600&dis_t=1666318728&dis_k=9a43609fa71a7dbf096448c8d845bb5b&sce=0-12-12&rf=viewer_311"></p>
+<p>PN结外加电压变化时，空间电荷区的宽度将发生变化，有电荷的积累和释放的过程，与电容的充放电相同，其等效电容称为势垒电容Cb。 Cb主要表现在加反向电压时。</p>
+<p><strong>扩散电容</strong></p>
+<p>PN结外加的正向电压变化时，在扩散路程中载流子的浓度及其梯度均有变化，也有电荷的积累和释放的过程，其等效电容称为扩散电容Cd。</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzIl0m9Oj3HnR3GZ2vZnzPg4WYy1KSz19FziuBxVa1mwT8uiGakvtEvUZgQN5OdM2sg!!/o&ek=1&kp=1&pt=0&bo=WwH0AFsB9AAWADA!&tl=1&tm=1666317600&dis_t=1666319120&dis_k=23a6f680d4f8f7ef34bbfc8990aa33b3&sce=0-12-12&rf=viewer_311"></p>
+<blockquote>
+<p>若PN结外加电压频率高到一定程度，则失去单向导电性！ 结电容不是常量！</p>
+</blockquote>
+<p>##半导体二极管的结构</p>
+<p>将PN结封装，引出两个电极，就构成了二极管。</p>
+<p><strong>点接触型</strong>：结面积小，结电容小，故结允许的电流小，最高工作频率高。 </p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMrj06BQWycxrA0HYt2P*fj3w5fvJEj.DYibRqTp9V3adV4Y1dPwPWBdVUAQhoayPQ!!/o&ek=1&kp=1&pt=0&bo=eQHTAHkB0wAWADA!&tl=1&tm=1666317600&dis_t=1666320495&dis_k=ad2ab6c6311d228e4ec86a0dc53e2039&sce=0-12-12&rf=viewer_311"></p>
+<p><strong>面接触型</strong>：结面积大，结电容大，故结允许的电流大，最高工作频率低。 </p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDFUY7M6U130DZX6ERHu3Db5fw66qnfpoav*Y2wh*hNVU2EDR4DUzwtOGmQ0sZ0ktQ!!/b&ek=1&kp=1&pt=0&bo=LwHhAC8B4QAWADA!&tl=1&vuin=2428175738&tm=1666317600&dis_t=1666320498&dis_k=477f52399d0673f8310c44906e4734f4&sce=50-1-1&rf=viewer_311"></p>
+<p><strong>平面型</strong>：结面积可小、可大，小的工作频率高，大的结允许的电流大。 </p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMc8mGGEdriz8Fbsy2giCCfCcJRY2VzD.a0J6pF2KfwXw5TCbv.I9QnhKK*o*Fi4Kw!!/b&ek=1&kp=1&pt=0&bo=LQHVAC0B1QAWADA!&tl=1&vuin=2428175738&tm=1666317600&dis_t=1666320498&dis_k=504ab4e86221c61da5acbd584c2925d5&sce=50-1-1&rf=viewer_311"></p>
+<h2 id="半导体二极管的伏安特性和电流方程"><a href="#半导体二极管的伏安特性和电流方程" class="headerlink" title="半导体二极管的伏安特性和电流方程"></a>半导体二极管的伏安特性和电流方程</h2><p><strong>二极管的伏安特性</strong></p>
+<p>二极管的电流与其端电压的关系称为伏安特性。</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzOn57CwFMx0WYTjALXUHXmGaJEMU*FpM4Wh2J8cP3joVOfVkkf7gZENLE5SXM9e0.Q!!/o&ek=1&kp=1&pt=0&bo=1gS0AdYEtAEWADA!&tl=1&tm=1666317600&dis_t=1666321141&dis_k=acfac078f253d0584ff32ccda6b9676f&sce=0-12-12&rf=viewer_311"></p>
+<p><strong>开启电压</strong>为什么不在零点？</p>
+<p>一是二极管当他封装时引出点要降调一部分压降，二是PN结要足以使得它的内部的电场削弱到一定程度，在外部才能看到这样的电流变化</p>
+<p><strong>反向饱和电流</strong></p>
+<p>反向特性从零逐渐增大时，反向电流明显增大，但是大到一定程度，反向特性几乎平行与横轴，原因就是当反向电压加上之后逐渐增大，参与漂移运动的少数载流子的个数在逐渐增多，从外部看就是电流在逐渐增大，大到一定程度，几乎所有的少数载流子都参与了漂移运动，再增大，也没有更多的少数载流子参与飘逸运动了，外部看就是电流几乎不变。反向电压加到一定程度的时候，反向电流骤然增大，这个电压称为<strong>击穿电压</strong></p>
+<blockquote>
+<p>二极管在损坏的时候有两种情况：一、正向电流过大温升过高，PN结被损坏；二、击穿，反向电压过大，使得空间电荷区（耗尽层）整个结构被破坏</p>
+</blockquote>
+<p><strong>二极管的电流方程</strong></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzG.JYe3gsHW9lgfYCfjFaTiYFOpHVWpv5ucU0tbS5oAq3v6l3cBa2HHipc9h8LgCeA!!/c&ek=1&kp=1&pt=0&bo=6gMiAuoDIgIWADA!&tl=1&tm=1666321200&dis_t=1666321896&dis_k=844344d13d4d08cb5c0e97d15c30ceab&sce=0-12-12&rf=0-18"></p>
+<p><strong>单向导电性</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMrj06BQWycxrA0HYt2P*fhAD8ItT85Vn6.aPz2pzTu8MIA3ZGx6UEgfjxWauhX6yA!!/o&ek=1&kp=1&pt=0&bo=mgQ5ApoEOQIWADA!&tl=1&tm=1666321200&dis_t=1666322245&dis_k=965d6653277ddfd4f1e93ab1dee1158b&sce=0-12-12&rf=viewer_311"></p>
+<p><strong>温度对伏安特性的影响</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzK4BNwwgQTr4D6j7D9rztTIMcU7rZJkEIALggQne*hL3GLuF1b4GfKI4S58CbkNHHA!!/o&ek=1&kp=1&pt=0&bo=AAUkAgAFJAIWADA!&tl=1&tm=1666321200&dis_t=1666322380&dis_k=1f9d650df5dfdcde6acb2093bc45ba03&sce=0-12-12&rf=viewer_311"></p>
+<blockquote>
+<p>二极管的导通电压不是常量，只能说<strong>近似</strong>0.7v</p>
+</blockquote>
+<h2 id="二极管的直流等效电路（直流模型）"><a href="#二极管的直流等效电路（直流模型）" class="headerlink" title="二极管的直流等效电路（直流模型）"></a>二极管的直流等效电路（直流模型）</h2><p><strong>将伏安特性折线化—直流模型（静态模型）</strong></p>
+<p>1.理想开关，导通时Ud&#x3D;0、截止时Is&#x3D;0       （理想二极管）</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDFUY7M6U130DZX6ERHu3DbEFlBBrJXYex6GJa7lLcjUbmJRxMYp.VbrbPZkyuTkOw!!/o&ek=1&kp=1&pt=0&bo=0QDUANEA1AAWADA!&tl=1&tm=1666335600&dis_t=1666337393&dis_k=078c69f46327da835311f75bfe2cd970&sce=0-12-12&rf=viewer_311" alt="理想二极管"></p>
+<p>2.导通时Ud&#x3D;Uon     （近似分析最常用）</p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHyLGwp15iwp7QdgalMsUbv8w9avldtu9ORshMWhMeiE6eTVoRz30UPsaOLOWFWHrw!!/b&ek=1&kp=1&pt=0&bo=ygDYAMoA2AAWADA!&tl=1&vuin=2428175738&tm=1666335600&dis_t=1666337396&dis_k=5fd8a4cd3775edd7c8c269935dac4b04&sce=50-1-1&rf=viewer_311"></p>
+<p>3.导通时i与u成线性关系    （误差更小）</p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMEJdS5dV5iBExTaepVYK46d3m5UAXdVc*Aq0cJylE9RJsiDnIjMcNn0NswOzl9PuA!!/b&ek=1&kp=1&pt=0&bo=xwDVAMcA1QAWADA!&tl=1&vuin=2428175738&tm=1666335600&dis_t=1666337396&dis_k=3505d747224b9fa400d4c5d1e88d7bf9&sce=50-1-1&rf=viewer_311"></p>
+<blockquote>
+<p>应根据不同情况选择不同的等效电路</p>
+</blockquote>
+<p><strong>讨论:电源电压值不同时如何求解回路电流？</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzCNP2izT7fx6O4Y2H9jkQ7xaFD3**2BDqcX3wdRLT*HWvZ.cHFEaBS.dSK0UlX2lIA!!/o&ek=1&kp=1&pt=0&bo=aQM0AWkDNAEWADA!&tl=1&tm=1666335600&dis_t=1666338014&dis_k=53000012353d09e137a5154b07dd0383&sce=0-12-12&rf=viewer_311"></p>
+<h2 id="二极管的交流等效电路和主要参数"><a href="#二极管的交流等效电路和主要参数" class="headerlink" title="二极管的交流等效电路和主要参数"></a>二极管的交流等效电路和主要参数</h2><p><strong>微变等效电路—交流模型（动态模型）</strong> </p>
+<blockquote>
+<p>小信号变化量的等效电路。</p>
+<p>注意：是在一个直流源作用的基础上又有一个交流源同时作用</p>
+</blockquote>
+<p>当二极管在静态基础上有一动态信号作用时，则可将二极<br>管等效为一个电阻，称为动态电阻，也就是微变等效电路。<br><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzKee.WHPkeGOFt2DpRdbanvj7aVGA4b1iW0Yq3myO9bjXSEMi7Nw7HunfTlaZdX9Pg!!/o&ek=1&kp=1&pt=0&bo=9wOSAfcDkgEWADA!&tl=1&tm=1666335600&dis_t=1666338601&dis_k=e6f99db97592f5cb165c932fdc3a97bd&sce=0-12-12&rf=viewer_311"></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzEj0Cj6Xk*1vnRJgMAupbgO*pYGGrim9MsNSRb1eNeOsDHBODBVGTc10iKlV7rWOxg!!/o&ek=1&kp=1&pt=0&bo=aATCAGgEwgAWADA!&tl=1&tm=1666335600&dis_t=1666338750&dis_k=fb808dd7817b02c3d7118836d953ba31&sce=0-12-12&rf=viewer_311"></p>
+<p><strong>二极管的主要参数</strong></p>
+<ul>
+<li>最大整流电流IF：最大平均值  （限制二极管的结温升，不能超过一定的限额）</li>
+<li>最大反向工作电压UR：最大瞬时值  （一旦超过就会损坏）</li>
+<li>反向电流 IR：即IS  （与环境温度密切相关）</li>
+<li>最高工作频率fM：因PN结有电容效应</li>
+</ul>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFuzNOL6YUm3Im0.oXXRuY2jdm2J*nmhL7B*otKH.ACzGxggfrcG5Mm2h5HB5VsLwg!!/o&ek=1&kp=1&pt=0&bo=wABTAMAAUwAWADA!&tl=1&tm=1666335600&dis_t=1666338891&dis_k=f69f4101af21da9c7b335ba00ee72f98&sce=0-12-12&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzKSjEpt2gVEiNPATXn0ixRKorufIE*SBiKYExn11K*ZSmEKzByKGnqOM727PcW8gOw!!/b&ek=1&kp=1&pt=0&bo=GgG2ABoBtgAWADA!&tl=1&vuin=2428175738&tm=1666335600&dis_t=1666338894&dis_k=1c0d24c45ab22919cd44b6d8ec2a0622&sce=50-1-1&rf=viewer_311"></p>
+<p><strong>讨论:对于二极管应用电路应解决两个问题</strong></p>
+<ul>
+<li>如何判断二极管的工作状态？</li>
+</ul>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMZrihYvHmefR4JE5kL5H*WXoZ6*zfRaY9dPec9NKZ8lH863Qm1q4WYeXtp1EA4vVg!!/o&ek=1&kp=1&pt=0&bo=ngHXAJ4B1wAWADA!&tl=1&tm=1666339200&dis_t=1666340634&dis_k=53a343f243852a8db1be459b451f376d&sce=0-12-12&rf=viewer_311"></p>
+<p>因为D1两端左侧电压低于右侧电压（D2导通，右侧电压为反向的）</p>
+<p>只看两个二极管支路部分，两个支路是并联关系，D2支路电压不论D2是否导通电压降绝对值一定大于10，由KVL，D1支路电压绝对值大于10，因此D1支路一定截止，后续正常分析即可</p>
+<p>Ud1&#x3D;-10v+Ud2&lt;0，显而易见，D1不导通，D2导通</p>
+<blockquote>
+<p>D1截止、D2导通</p>
+</blockquote>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzNAPst62BisgmAQZgFn.gQgHMJm8IP2meAWY1zL3tTfBU5SK9PbC2MxayWeIoKycHg!!/o&ek=1&kp=1&pt=0&bo=dQHrAHUB6wAWADA!&tl=1&tm=1666339200&dis_t=1666340954&dis_k=2711761d6e7704398809e968b3f14ed7&sce=0-12-12&rf=viewer_311"></p>
+<p>加入输入的动态的频率不高，没有超过二极管的极限值，而在电路里面既有直流电源的作用又有交流电源的作用，在分析的时候就应该分布分析，首先看直流源的作用，用什么样的直流模型跟V有多大有关系，在求出直流电流之后，还可以求出回路的交流电流，这时候由于直流电源是理想电源，他的上面不会有交流压降，所以在分析的时候，应该把直流的电源短路，而把二极管用它的微变等效电路（交流等效模型）去取代，这时就可以求出来交流源在回路里边所产生的交流电流，直流源的电流+交流源的电流&#x3D;整个回路的电流总量</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFuzNOL6YUm3Im0.oXXRuY2jdm2J*nmhL7B*otKH.ACzGxggfrcG5Mm2h5HB5VsLwg!!/o&ek=1&kp=1&pt=0&bo=wABTAMAAUwAWADA!&tl=1&tm=1666335600&dis_t=1666338891&dis_k=f69f4101af21da9c7b335ba00ee72f98&sce=0-12-12&rf=viewer_311"></p>
+<ul>
+<li>什么情况下应选用二极管的什么等效电路？</li>
+</ul>
+<h2 id="晶体三极管的结构和符号"><a href="#晶体三极管的结构和符号" class="headerlink" title="晶体三极管的结构和符号"></a>晶体三极管的结构和符号</h2><p>晶体管有三个极、三个区、两个PN结。</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzIm0WdwR2r1n712XmoWOYU1YCWgGfSoxhxIR**080XkhWRDgj4CPzpQyzSm5Y02Adw!!/o&ek=1&kp=1&pt=0&bo=XgMsAV4DLAEWADA!&tl=1&tm=1666350000&dis_t=1666352839&dis_k=3ddebd42eb36026f7be6cfc3dcc32646&sce=0-12-12&rf=viewer_311"></p>
+<p>##晶体三极管的放大原理</p>
+<p>###晶体管放大的外部条件</p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/8v1c6OdZLSE3kzDE6fnRykUf5evWQFFRbaxLkaUad7nTBrC34E7qQzWTZ7HbFEiPmEXlWDUO1rLVpIZBOkuqFtMVgFAdQ8WYXvlTZYyX8CQ!/m&ek=1&kp=1&pt=0&bo=FQJUABUCVAAWADA!&tl=3&vuin=2428175738&tm=1666350000&dis_t=1666353082&dis_k=086dac1b40124ff7711c4f4ba501c064&sce=60-3-3&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzBxfqd0zgMs4L2dj3lziAkk1I3b2JCcLL9q8dAblWkNF33HgOCj8iPkPMNNIJ0Kriw!!/b&ek=1&kp=1&pt=0&bo=lwExAZcBMQEWADA!&tl=1&vuin=2428175738&tm=1666350000&dis_t=1666353085&dis_k=429d0823a6f2eefddda4338eebd6194a&sce=50-1-1&rf=viewer_311"></p>
+<ul>
+<li>VBB：保证发射结正向偏置</li>
+<li>Rb：限制基极电流</li>
+<li>VCC：保证集电结反向偏置   （使得集电极电位高于基电极）</li>
+<li>Rc：将集电极电流的变化转换成电压的变化</li>
+</ul>
+<p>###载流子的运动</p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzPtNqBkEUj4L.bGcMM3QekqoZrB7buTtuMHZ582yolr1VVpuO1jZu4q6sCaVB9UQKA!!/b&ek=1&kp=1&pt=0&bo=TwMbAU8DGwEWADA!&tl=1&vuin=2428175738&tm=1666353600&dis_t=1666354580&dis_k=1536899cf2a7c2c8d13a1c5ea9890918&sce=50-1-1&rf=viewer_311"></p>
+<blockquote>
+<p>扩散运动形成发射极电流IE，复合运动形成基极电流IB，<br>漂移运动形成集电极电流IC，IE＝IC＋IB。</p>
+</blockquote>
+<p><strong>电流分配</strong></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMZ14RXa7InOl5UaNXAtPmfxFPHtD3YR1UtthUWFDWmUAh3REDl3AL5KqDTzr898QA!!/c&ek=1&kp=1&pt=0&bo=SQM6AUkDOgEWADA!&tl=1&tm=1666353600&dis_t=1666354578&dis_k=7ebc513b0598ed47468ee2fa446b655b&sce=0-12-12&rf=viewer_311"></p>
+<p>Iceo通常很少，忽略不计</p>
+<blockquote>
+<p>为什么基极开路集电极回路会有穿透电流？ </p>
+<p>发射极正偏，集电极反偏，就会出现穿透电流</p>
+</blockquote>
+<p>##晶体三极管的输入特性和输出特性</p>
+<p><strong>晶体管的共射输入特性</strong></p>
+<p>晶体管的公射输入特性是在Uce电压一定的情况下，Ube的变化，Ib的变化，这时候是以Ube为自变量以Ib为函数。</p>
+<p><img src="http://photogz.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzL10Z8asg7gnGMxfzWxJnI8EvIRG2MbJBwbQWYSS6aZojwwYpV0KES1d7vGdV3Qewg!!/m&bo=yQA*AMkAPwAWADA!&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzL10Z8asg7gnGMxfzWxJnI9URboB7VvNkyuLpNAz0ugNBUyjQfXUkBvIi8wHk6omRg!!/b&ek=1&kp=1&pt=0&bo=TwFBAU8BQQEWADA!&tl=1&vuin=2428175738&tm=1666677600&dis_t=1666681044&dis_k=d4b700d3cdd82c9792771f5fd1cee77c&sce=50-1-1&rf=viewer_311"></p>
+<p><strong>1.为什么像PN结的伏安特性？</strong></p>
+<p>因为这时候当Uce是0的时候，就是发射结和集电结并在一起就是一个PN结，就是两个pN结并在一起，所以他们的特性就像PN结的伏安特性</p>
+<p><strong>2.为什么UCE增大曲线右移？</strong></p>
+<p>IE＝IC＋IB，当c之间的电压升高，就说明集电结收集电子的能力在逐渐增强，Ic在逐渐增大，Ib变小</p>
+<p><strong>3.为什么UCE增大到一定值曲线右移就不明显了？</strong></p>
+<p>当ce之间的电压足够大，已经把绝大多数电子都收集过来的时候，ce之间在增大，那么收集电子的数目不会明显增大了</p>
+<blockquote>
+<p><strong>对于小功率晶体管，UCE大于1V的一条输入特性曲线可以近似UCE大于1V的所有输入特性曲线。</strong></p>
+</blockquote>
+<p><strong>小功率放大电路输出特性</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzFlssJk70gpZZ3uFcBsgsdBWZY9cvgXAEUWjFeH9rentPdYGkGXp2com4zZPYNSIHA!!/o&ek=1&kp=1&pt=0&bo=swA3ALMANwAWADA!&tl=1&tm=1666681200&dis_t=1666682331&dis_k=80ce62b918f814724f651f5fec7019c4&sce=0-12-12&rf=viewer_311"></p>
+<p>对应于一个IB就有一条iC随uCE变化的曲线。</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzIWpScq8skfoe7ZWRr4iEdwqf1cAJNEbYemln1038ETqJO3ZOZkuYqVLqYCbqKkZpQ!!/o&ek=1&kp=1&pt=0&bo=0gEiAdIBIgEWADA!&tl=1&tm=1666681200&dis_t=1666682944&dis_k=9cd136b8c5b3863f39da2c57839ef050&sce=0-12-12&rf=viewer_311"></p>
+<p><strong>为什么uCE较小时iC随uCE变化很大？为什么进入放大状态曲线几乎是横轴的平行线？</strong></p>
+<p>当ce之间电压很小的时候，当它增大，它收集电子的能力明显增大，看到的外部电流Ic就会明显增大，当ce之间的电压大到一定程度，已经把绝大多数的少子都收集过来，它再增大，少子的数目就不会明显增大，看到的外部电流就基本上不会再增大。</p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHzeP6ALpwCan8PfH7PFb4yxteJJWHaby9OdSYGQOi2bn4e0sH.ZX*sYIMApKiGU6g!!/b&ek=1&kp=1&pt=0&bo=tgBOALYATgAWADA!&tl=1&vuin=2428175738&tm=1666681200&dis_t=1666682949&dis_k=6dcb61e272c504a3a0a7c1babcf3fbb7&sce=50-1-1&rf=viewer_311"></p>
+<p>β不是常量，理想晶体管就是β处处相等</p>
+<p>##晶体三极管的三个工作区域及温度对其特性的影响</p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/8v1c6OdZLSE3kzDE6fnRygjLZ0FpkAItaFjIUhooKVaEPzqIKV3XrpM*C0HoAfMtsDkJcYtjM*.IXRAcytTmLdQ1uhG5yZfI*m*.utuneho!/m&ek=1&kp=1&pt=0&bo=hwH3AIcB9wAWADA!&tl=3&vuin=2428175738&tm=1666681200&dis_t=1666683870&dis_k=eb6000c9fbb2df6e0decb2408d3ee5c8&sce=60-4-3&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzH2sOZSIT9uhKGdzbDEDBRAe2sL7VVHjbJASdG.I8iWU*T4xFm1RB*jTSLIAH1p3Iw!!/b&ek=1&kp=1&pt=0&bo=dgElAXYBJQEWADA!&tl=1&vuin=2428175738&tm=1666681200&dis_t=1666683873&dis_k=59a6dd26711d43d2ce8c13eec3bcd1d2&sce=50-1-1&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHqigkmttDj.SuDxFZyZv9bAKRZXseWW7aeM.HPUEgxzbUXh.3HbbEsBhAE9N1ZKPg!!/b&ek=1&kp=1&pt=0&bo=hgGbAIYBmwAWADA!&tl=1&vuin=2428175738&tm=1666681200&dis_t=1666683873&dis_k=f1386a4064b90df0843fec80a51a063e&sce=50-1-1&rf=viewer_311"></p>
+<blockquote>
+<p>晶体管工作在放大状态时，输出回路的电流 iC几乎仅仅决定于输入回路的电流 iB，即可将输出回路等效为电流 iB 控制的电流源iC 。</p>
+</blockquote>
+<p>可以测量出三个电位差，判断出晶体管工作在哪个区</p>
+<p><strong>温度对晶体管特性的影响</strong></p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDDS4SLOXiBulXQEhA7zV1ahwXKIgYE6AFv8xdlIgVqT6Y*UhA8pUYJt0F75NAfV1w!!/o&ek=1&kp=1&pt=0&bo=ogGdAaIBnQEWADA!&tl=1&tm=1666684800&dis_t=1666687676&dis_k=7203728c99649913e34a05ce497aa090&sce=0-12-12&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzMZ14RXa7InOl5UaNXAtPme6nI*wn*vyZbEOdEpb6ywCkHVvHsIyI0cVuklDzLZmwQ!!/b&ek=1&kp=1&pt=0&bo=kwEaAZMBGgEWADA!&tl=1&vuin=2428175738&tm=1666684800&dis_t=1666687679&dis_k=ccf7018865ece4594e935571658b00ed&sce=50-1-1&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzNKnZvZREbaQ4rXtP1UHVKoADiv28Whfjuv28MNo4tMgZpQq3BYCF9ZwqyDLEoakmA!!/b&ek=1&kp=1&pt=0&bo=7QGDAO0BgwAWADA!&tl=1&vuin=2428175738&tm=1666684800&dis_t=1666687679&dis_k=1845a463e287094093143735c9d98ce7&sce=50-1-1&rf=viewer_311"></p>
+<p>##晶体三极管的主要参数</p>
+<ul>
+<li>直流参数：β 、 ICBO、 ICEO</li>
+<li>交流参数：β、fT（使β＝1的信号频率）</li>
+<li>极限参数：ICM、PCM、U（BR）CEO</li>
+</ul>
+<p>ICM：最大集电极电流<br>PCM: 最大集电极耗散功率，PCM＝iC*UCE<br>U（BR）CEO: c-e间击穿电压</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzBjoHOcPMuHaMbNQBXtEg2E6Ip7xyV6.owjelKewZPz3GU3nlwyEuYURa2UMqD2.Jg!!/o&ek=1&kp=1&pt=0&bo=CQYjBAkGIwQWADA!&tl=1&tm=1666688400&dis_t=1666688709&dis_k=86b8c0394e2e8136cc1b49da5cf91097&sce=0-12-12&rf=viewer_311"></p>
+<p>#3.基本放大电路</p>
+<p>##放大的概念</p>
+<ul>
+<li>放大的对象：变化量 常用正弦波做测试信号</li>
+<li>放大的本质：能量的控制和转换，利用有源元件（能够控制能量的元件）实现 </li>
+<li>放大的特征：功率放大（判断电路能否放大的基本出发点）</li>
+<li>放大的基本要求：不失真——放大的前提</li>
+</ul>
+<p>##放大电路的性能指标</p>
+<p><strong>放大电路的性能指标：研究的是动态性能</strong></p>
+<p>对信号而言，任何放大电路均可看成二端口网络。</p>
+<p><img src="http://r.photo.store.qq.com/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzNAPst62BisgmAQZgFn.gQhqwpRwSOeu8ZNN1mvkB1ykI2ormzJxVOrs6XFKZB2p1Q!!/o&ek=1&kp=1&pt=0&bo=MgP*ADID*wAWADA!&tl=1&tm=1666771200&dis_t=1666772329&dis_k=1f0767038fffd8e5fbefe3321c1e8fe0&sce=0-12-12&rf=viewer_311"></p>
+<p>物理量表示为复数，表明既研究其幅值又研究其相位。</p>
+<p>放大倍数：输出量与输入量之比 </p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzAVPbIDmXCbp396sHtxN7dQoRxeyuIOZDjNs62GPLYG3KCWLo97vL6DYE1RgMwq03Q!!/b&ek=1&kp=1&pt=0&bo=owKGAKMChgAWADA!&tl=1&vuin=2428175738&tm=1666771200&dis_t=1666772332&dis_k=9c4408850187377938559606f31c8ac2&sce=50-1-1&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHR7XZW5lW80Asb*y1sFjFejaJSw.DTgwQhDScBMgjEBVcG3vMcY2rPol0HwCl2cXQ!!/b&ek=1&kp=1&pt=0&bo=ygJsAcoCbAEWADA!&tl=1&vuin=2428175738&tm=1666771200&dis_t=1666772332&dis_k=f24fe0ae7178008bc0271e417e379337&sce=50-1-1&rf=viewer_311"></p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzDFUY7M6U130DZX6ERHu3Db1X1SbrGWtSV7EvNOJhMMlOJv19dHe7yAeyRxLDblq1Q!!/b&ek=1&kp=1&pt=0&bo=9AJ5AfQCeQEWADA!&tl=1&vuin=2428175738&tm=1666771200&dis_t=1666772332&dis_k=dd19d230458a298946f92fafb5a323fb&sce=50-1-1&rf=viewer_311"></p>
+<p><strong>通频带</strong> </p>
+<p>衡量放大电路对不同频率信号的适应能力。</p>
+<p>由于电容、电感及半导体元件的电容效应，使放大电路在信号频率较低和较高时电压放大倍数数值下降，并产生相移。</p>
+<p><img src="http://a1.qpic.cn/psc?/V11xquWm4JNBW6/05RlWl8gsTOH*Z17MtCBzHyLGwp15iwp7QdgalMsUbv0a90zr1ZLJOq*Col7Z0OiSWsBcFKiRpU2mGhy2oAHmQ!!/b&ek=1&kp=1&pt=0&bo=HwPKAB8DygAWADA!&tl=1&vuin=2428175738&tm=1666771200&dis_t=1666772332&dis_k=630ab824bb9d92727b45650a24b97007&sce=50-1-1&rf=viewer_311"> </p>
+<ul>
+<li>最大不失真输出电压Uom：交流有效值 </li>
+<li>最大输出功率和效率：功率放大电路再作研究</li>
+</ul>
+<h2 id="基本共射放大电路的组成及各元件的作用"><a href="#基本共射放大电路的组成及各元件的作用" class="headerlink" title="基本共射放大电路的组成及各元件的作用"></a>基本共射放大电路的组成及各元件的作用</h2>
+      
+    </div>
+    <div class="article-footer">
+      <blockquote class="mt-2x">
+  <ul class="post-copyright list-unstyled">
+    
+    <li class="post-copyright-link hidden-xs">
+      <strong>本文链接：</strong>
+      <a href="https://wonderfulbing.github.io/2022/10/27/%E6%A8%A1%E6%8B%9F%E7%94%B5%E5%AD%90%E6%8A%80%E6%9C%AF%E5%9F%BA%E7%A1%80%E7%AC%94%E8%AE%B0%EF%BC%88%E4%B8%80%EF%BC%89/" title="" target="_blank" rel="external">https://wonderfulbing.github.io/2022/10/27/模拟电子技术基础笔记（一）/</a>
+    </li>
+    
+    <li class="post-copyright-license">
+      <strong>版权声明： </strong> 本博客所有文章除特别声明外，均采用 <a href="http://creativecommons.org/licenses/by/4.0/deed.zh" target="_blank" rel="external">CC BY 4.0 CN协议</a> 许可协议。转载请注明出处！
+    </li>
+  </ul>
+</blockquote>
+
+
+<div class="panel panel-default panel-badger">
+  <div class="panel-body">
+    <figure class="media">
+      <div class="media-left">
+        <a href="https://github.com/cofess" target="_blank" class="img-burn thumb-sm visible-lg">
+          <img src="/images/avatar.jpg" class="img-rounded w-full" alt="">
+        </a>
+      </div>
+      <div class="media-body">
+        <h3 class="media-heading"><a href="https://github.com/cofess" target="_blank"><span class="text-dark">昵称</span><small class="ml-1x">Web Developer &amp; Designer</small></a></h3>
+        <div>个人简介。</div>
+      </div>
+    </figure>
+  </div>
+</div>
+
+
+    </div>
+  </article>
+  
+    
+  <section id="comments">
+  	
+      <div id="vcomments"></div>
+    
+  </section>
+
+
+  
+</div>
+
+  <nav class="bar bar-footer clearfix" data-stick-bottom>
+  <div class="bar-inner">
+  
+  <ul class="pager pull-left">
+    
+    
+    <li class="next">
+      <a href="/2022/10/18/hello-world/" title="Hello World"><span>Older&nbsp;&nbsp;</span><i class="icon icon-angle-right" aria-hidden="true"></i></a>
+    </li>
+    
+    
+  </ul>
+  
+  
+  <!-- Button trigger modal -->
+  <button type="button" class="btn btn-fancy btn-donate pop-onhover bg-gradient-warning" data-toggle="modal" data-target="#donateModal"><span>$</span></button>
+  <!-- <div class="wave-icon wave-icon-danger btn-donate" data-toggle="modal" data-target="#donateModal">
+    <div class="wave-circle"><span class="icon"><i class="icon icon-bill"></i></span></div>
+  </div> -->
+  
+  
+  <div class="bar-right">
+    
+    <div class="share-component" data-sites="weibo,qq,wechat,facebook,twitter" data-mobile-sites="weibo,qq,qzone"></div>
+    
+  </div>
+  </div>
+</nav>
+  
+<!-- Modal -->
+<div class="modal modal-center modal-small modal-xs-full fade" id="donateModal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content donate">
+      <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+      <div class="modal-body">
+        <div class="donate-box">
+          <div class="donate-head">
+            <p>Maybe you could buy me a cup of coffee.</p>
+          </div>
+          <div class="tab-content">
+            <div role="tabpanel" class="tab-pane fade active in" id="alipay">
+              <div class="donate-payimg">
+                <img src="/images/donate/alipayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open alipay app scan this qrcode, buy me a coffee!</p>
+            </div>
+            <div role="tabpanel" class="tab-pane fade" id="wechatpay">
+              <div class="donate-payimg">
+                <img src="/images/donate/wechatpayimg.png" alt="Scan Qrcode" title="Scan" />
+              </div>
+              <p class="text-muted mv">Scan this qrcode</p>
+              <p class="text-grey">Open wechat app scan this qrcode, buy me a coffee!</p>
+            </div>
+          </div>
+          <div class="donate-footer">
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+              <li role="presentation" class="active">
+                <a href="#alipay" id="alipay-tab" role="tab" data-toggle="tab" aria-controls="alipay" aria-expanded="true"><i class="icon icon-alipay"></i> alipay</a>
+              </li>
+              <li role="presentation" class="">
+                <a href="#wechatpay" role="tab" id="wechatpay-tab" data-toggle="tab" aria-controls="wechatpay" aria-expanded="false"><i class="icon icon-wepay"></i> wechat payment</a>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</main>
+
+  <footer class="footer" itemscope itemtype="http://schema.org/WPFooter">
+	
+	
+    <ul class="social-links">
+    	
+        <li><a href="https://github.com/cofess" target="_blank" title="Github" data-toggle=tooltip data-placement=top><i class="icon icon-github"></i></a></li>
+        
+        <li><a href="http://weibo.com/cofess" target="_blank" title="Weibo" data-toggle=tooltip data-placement=top><i class="icon icon-weibo"></i></a></li>
+        
+        <li><a href="https://twitter.com/iwebued" target="_blank" title="Twitter" data-toggle=tooltip data-placement=top><i class="icon icon-twitter"></i></a></li>
+        
+        <li><a href="https://www.behance.net/cofess" target="_blank" title="Behance" data-toggle=tooltip data-placement=top><i class="icon icon-behance"></i></a></li>
+        
+        <li><a href="/atom.xml" target="_blank" title="Rss" data-toggle=tooltip data-placement=top><i class="icon icon-rss"></i></a></li>
+        
+    </ul>
+
+    <div class="copyright">
+    	
+        <div class="publishby">
+        	Theme by <a href="https://github.com/cofess" target="_blank"> cofess </a>base on <a href="https://github.com/cofess/hexo-theme-pure" target="_blank">pure</a>.
+        </div>
+    </div>
+</footer>
+  <script src="//cdn.jsdelivr.net/npm/jquery@1.12.4/dist/jquery.min.js"></script>
+<script>
+window.jQuery || document.write('<script src="js/jquery.min.js"><\/script>')
+</script>
+
+<script src="/js/plugin.min.js"></script>
+
+
+<script src="/js/application.js"></script>
+
+
+    <script>
+(function (window) {
+    var INSIGHT_CONFIG = {
+        TRANSLATION: {
+            POSTS: 'Posts',
+            PAGES: 'Pages',
+            CATEGORIES: 'Categories',
+            TAGS: 'Tags',
+            UNTITLED: '(Untitled)',
+        },
+        ROOT_URL: '/',
+        CONTENT_URL: '/content.json',
+    };
+    window.INSIGHT_CONFIG = INSIGHT_CONFIG;
+})(window);
+</script>
+
+<script src="/js/insight.js"></script>
+
+
+
+
+
+
+   
+
+
+
+
+   
+    
+  <script src="//cdn1.lncld.net/static/js/3.0.4/av-min.js"></script>
+  <script src="//cdn.jsdelivr.net/npm/valine"></script>
+  <script type="text/javascript">
+  var GUEST = ['nick', 'mail', 'link'];
+  var meta = 'nick,mail,link';
+  meta = meta.split(',').filter(function(item) {
+    return GUEST.indexOf(item) > -1;
+  });
+  new Valine({
+    el: '#vcomments',
+    verify: false,
+    notify: false,
+    appId: '',
+    appKey: '',
+    placeholder: 'Just go go',
+    avatar: 'mm',
+    meta: meta,
+    pageSize: '10' || 10,
+    visitor: false
+  });
+  </script>
+
+     
+
+
+
+
+
+
+
+</body>
+</html>
