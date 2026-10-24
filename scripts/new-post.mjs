@@ -11,7 +11,7 @@ const date = new Intl.DateTimeFormat('en-CA', { timeZone: 'Asia/Shanghai', year:
 const slug = title.toLowerCase().replace(/[^\p{L}\p{N}-]+/gu, '-').replace(/^-+|-+$/g, '').slice(0, 80) || 'new-post'
 const name = `${date}-${slug}.md`
 const target = path.join(root, 'docs/posts', name)
-const frontmatter = { title, date, category: '随笔', post: true, description: '在这里填写文章简介。' }
+const frontmatter = { title, date, category: '其他', post: true, description: '在这里填写文章简介。' }
 const content = '---\n' + Object.entries(frontmatter).map(([key, value]) => `${key}: ${JSON.stringify(value)}`).join('\n') + '\n---\n\n# ' + title + '\n\n<PostMeta />\n\n从这里开始写正文。\n'
 await fs.mkdir(path.dirname(target), { recursive: true })
 try {

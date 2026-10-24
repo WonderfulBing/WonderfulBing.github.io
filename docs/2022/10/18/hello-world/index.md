@@ -1,7 +1,7 @@
 ---
 title: "Hello World"
 date: "2022-10-18"
-category: "建站记录"
+category: "其他"
 post: true
 description: "保留自旧博客的第一篇文章，记录 Hexo 的入门与常用命令。"
 outline: "deep"

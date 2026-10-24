@@ -20,7 +20,7 @@
 npm run new -- "我的第一篇文章"
 ```
 
-脚本会在 `docs/posts/` 创建 Markdown 文件，自动填入中国时区的日期。修改文章顶部的 `category` 和 `description`，在正文里写作。`post: true` 表示加入首页和文章列表。保存后本地预览自动更新。
+脚本会在 `docs/posts/` 创建 Markdown 文件，自动填入中国时区的日期。根据内容把顶部的 `category` 设置为 `MCNP学习`、`运动解剖学` 或 `其他`，再填写简介并写正文。`post: true` 表示加入首页和文章列表。保存后本地预览自动更新，文章也会自动进入对应主题页。
 
 也可以直接新建 `.md` 文件：
 
@@ -28,7 +28,7 @@ npm run new -- "我的第一篇文章"
 ---
 title: 我的文章
 date: "2026-10-24"
-category: 学习笔记
+category: MCNP学习
 post: true
 description: 一句话介绍这篇文章。
 ---

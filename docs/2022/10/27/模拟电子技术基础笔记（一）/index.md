@@ -1,7 +1,7 @@
 ---
 title: "模拟电子技术基础笔记（一）"
 date: "2022-10-27"
-category: "学习笔记"
+category: "其他"
 post: true
 description: "模拟信号、半导体、PN 结与二极管：模拟电子技术基础的学习记录。"
 outline: "deep"

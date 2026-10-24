@@ -1,7 +1,7 @@
 ---
 title: VitePress 博客入门：修改主页、写文章和发布
 date: "2026-10-24"
-category: 使用指南
+category: 其他
 post: true
 description: 在 VS Code 中修改主页、撰写 Markdown 文章、预览并发布博客的操作指南。
 ---
@@ -56,7 +56,7 @@ npm run new -- "我的第一篇文章"
 ---
 title: 我的第一篇文章
 date: "2026-10-24"
-category: 学习笔记
+category: MCNP学习
 post: true
 description: 用一句话介绍文章内容。
 ---
@@ -76,7 +76,7 @@ description: 用一句话介绍文章内容。
 可以写段落、列表和链接。
 ```
 
-`post: true` 会让文章显示在首页和文章列表中。`title` 是标题，`category` 是分类，`description` 是简介。使用 `##`、`###` 添加小标题，文章页会自动生成目录。
+`post: true` 会让文章显示在首页和文章列表中。`title` 是标题，`category` 是分类，`description` 是简介。根据内容填写 `category: MCNP学习`、`category: 运动解剖学` 或 `category: 其他`，文章会自动出现在对应主题页。使用 `##`、`###` 添加小标题，文章页会自动生成目录。
 
 Markdown 常用写法：
 
