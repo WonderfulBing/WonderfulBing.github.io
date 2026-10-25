@@ -9,7 +9,20 @@ const props = defineProps({
   description: { type: String, required: true }
 })
 
-const filtered = computed(() => posts.filter(post => post.category === props.category))
+const filtered = computed(() => {
+  const matchingPosts = posts.filter(post => post.category === props.category)
+  const sequenceNumber = post => {
+    const match = post.title.match(/^\s*(\d+)/)
+    return match ? Number(match[1]) : null
+  }
+
+  // Numbered lessons should read in study order, even when published together.
+  if (matchingPosts.length > 1 && matchingPosts.every(post => sequenceNumber(post) !== null)) {
+    return [...matchingPosts].sort((a, b) => sequenceNumber(a) - sequenceNumber(b))
+  }
+
+  return matchingPosts
+})
 </script>
 
 <template>
